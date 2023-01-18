@@ -1,18 +1,17 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.mengxiaozzz.mydemoplugin</id>
-    <name>IntelliJ Platform Plugin MyDemoPlugin</name>
+    <name>MyDemoPlugin</name>
     <vendor>mengxiaozzz</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.mengxiaozzz.mydemoplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.mengxiaozzz.mydemoplugin.services.MyProjectService"/>
-    </extensions>
+    <!-- action配置，按钮展示在哪里需要在这配置 -->
+    <actions>
+        <action class="com.github.mengxiaozzz.action.MyAction" id="myAction" text="MyAction" description="Hello myAction" >
+            <!-- 将插件放在Tools菜单中的first位置。 -->
+            <add-to-group group-id="ToolsMenu" anchor="first" />
+        </action>
+    </actions>
 
-    <applicationListeners>
-        <listener class="com.github.mengxiaozzz.mydemoplugin.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
 </idea-plugin>

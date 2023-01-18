@@ -1,0 +1,18 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.github.mengxiaozzz.mydemoplugin</id>
+    <name>IntelliJ Platform Plugin MyDemoPlugin</name>
+    <vendor>mengxiaozzz</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.github.mengxiaozzz.mydemoplugin.services.MyApplicationService"/>
+        <projectService serviceImplementation="com.github.mengxiaozzz.mydemoplugin.services.MyProjectService"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="com.github.mengxiaozzz.mydemoplugin.listeners.MyProjectManagerListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
+</idea-plugin>
